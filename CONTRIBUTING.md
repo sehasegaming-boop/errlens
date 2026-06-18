@@ -6,7 +6,7 @@ welcome — bug reports, feature ideas, docs, and code.
 ## Development setup
 
 ```bash
-git clone https://github.com/yourname/errlens
+git clone https://github.com/sehasegaming-boop/errlens
 cd errlens
 pip install -e ".[dev]"
 ```

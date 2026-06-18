@@ -24,8 +24,8 @@ dependencies = []
 dev = ["pytest>=7.0"]
 
 [project.urls]
-Homepage = "https://github.com/yourname/errlens"
-Issues = "https://github.com/yourname/errlens/issues"
+Homepage = "https://github.com/sehasegaming-boop/errlens"
+Issues = "https://github.com/sehasegaming-boop/errlens/issues"
 
 [project.scripts]
 errlens = "errlens.cli:main"

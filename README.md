@@ -14,8 +14,11 @@ the error output and tells you **what** the error is, **why** it happened, and
 > ⚡ **Zero dependencies.** Pure Python standard library. Responses stream
 > token-by-token so you are not left staring at a blank screen on CPU.
 
-<!-- Record with: see docs/demo.md -->
-![errlens demo](docs/demo.gif)
+<p align="center">
+  <img src="docs/demo.svg" alt="errlens explaining a ModuleNotFoundError" width="700">
+</p>
+
+<!-- Prefer an animated demo? See docs/demo.md to record a GIF. -->
 
 ## How it works
 

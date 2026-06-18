@@ -6,21 +6,23 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-06-18
+
+First public release.
+
 ### Added
-- Streaming responses so tokens appear as the model generates them.
+- Explain piped or argument error text via a local Ollama model — no data
+  leaves the machine.
+- Three-section output (What / Why / How to fix) with colored headers.
+- Streaming responses so output appears line by line as the model generates it.
 - `errlens doctor` to verify Ollama connectivity and model availability.
 - `errlens install-hook` with an `err` shortcut for bash, zsh, and PowerShell
   that re-runs the previous command and explains its output.
+- Zero runtime dependencies (standard library only).
 - Test suite (pytest) and GitHub Actions CI across Python 3.10–3.12.
 
 ### Fixed
 - Enable virtual terminal processing on Windows so colored output renders
   instead of printing raw ANSI escape codes; color is disabled automatically
   when the console cannot support it.
-
-## [0.1.0] - 2026-06-18
-
-### Added
-- Initial MVP: explain piped or argument error text via a local Ollama model.
-- Three-section output (What / Why / How to fix) with colored headers.
-- Zero runtime dependencies (standard library only).
+- Stream output line by line to avoid duplicated text when long lines wrap.

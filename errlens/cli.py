@@ -38,19 +38,16 @@ def _explain(args: argparse.Namespace) -> int:
             answer = explain(SYSTEM_PROMPT, prompt, args.model)
             print(ui.colorize_sections(answer) if color else answer)
         else:
-            # Stream tokens live for responsiveness on slow CPUs.
-            buffer = []
+            # Stream line by line: emit each line once it is complete so colors
+            # apply correctly and terminal wrapping never doubles the output.
+            pending = ""
             for chunk in explain_stream(SYSTEM_PROMPT, prompt, args.model):
-                buffer.append(chunk)
-                sys.stdout.write(chunk)
-                sys.stdout.flush()
-            sys.stdout.write("\n")
-            full = "".join(buffer)
-            if color and full.strip():
-                # Repaint over the streamed text with colored section headers.
-                line_count = full.count("\n") + 1
-                sys.stdout.write(f"\033[{line_count}F\033[J")
-                sys.stdout.write(ui.colorize_sections(full) + "\n")
+                pending += chunk
+                while "\n" in pending:
+                    line, pending = pending.split("\n", 1)
+                    print(ui.colorize_sections(line) if color else line, flush=True)
+            if pending:
+                print(ui.colorize_sections(pending) if color else pending)
     except OllamaError as exc:
         print(f"errlens: {exc}", file=sys.stderr)
         return 1

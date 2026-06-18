@@ -13,6 +13,11 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   that re-runs the previous command and explains its output.
 - Test suite (pytest) and GitHub Actions CI across Python 3.10–3.12.
 
+### Fixed
+- Enable virtual terminal processing on Windows so colored output renders
+  instead of printing raw ANSI escape codes; color is disabled automatically
+  when the console cannot support it.
+
 ## [0.1.0] - 2026-06-18
 
 ### Added

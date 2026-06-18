@@ -14,6 +14,9 @@ the error output and tells you **what** the error is, **why** it happened, and
 > ⚡ **Zero dependencies.** Pure Python standard library. Responses stream
 > token-by-token so you are not left staring at a blank screen on CPU.
 
+<!-- Record with: see docs/demo.md -->
+![errlens demo](docs/demo.gif)
+
 ## How it works
 
 ```
